@@ -1,0 +1,29 @@
+version: '3'
+services: 
+  app:
+    build: ./
+    ports:
+     - "8080:8080"
+     - "8443:8443"
+    volumes: 
+      - ./:/app
+    command: /works/code-server --auth none --host 0.0.0.0 --port 8443 /app 
+#  proxy_dart:
+#    build: ./proxy_dart
+#    ports:
+#     - "18080:8080"
+#     - "18443:8443"
+#    volumes: 
+#      - ./proxy_dart:/app
+#    command: /works/code-server --auth none --host 0.0.0.0 --port 8443 /app 
+#  proxy_go:
+#    build: ./proxy_go
+#    ports:
+#     - "18080:8080"
+#     - "18443:8443"
+#    volumes: 
+#      - ./proxy:/app
+#    links: 
+#      - app
+#    command: /works/code-server --auth none --host 0.0.0.0 --port 8443 /app 
+#  
